@@ -14,14 +14,8 @@
  * limitations under the License.
  */
 
-import { NacosConfigService } from './nacos.config';
-import {
-  ILifeCycle,
-  MidwayDecoratorService,
-  MidwayLoggerService,
-} from '@midwayjs/core';
-import { Configuration, Init, Inject } from '@midwayjs/decorator';
-import { NacosNamingService } from './nacos.naming';
+import { ILifeCycle, MidwayLoggerService } from '@midwayjs/core';
+import { Configuration, Inject } from '@midwayjs/decorator';
 
 @Configuration({
   namespace: 'casbin',

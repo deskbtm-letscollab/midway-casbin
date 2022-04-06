@@ -14,4 +14,7 @@
  * limitations under the License.
  */
 
-export interface MidwayCasbinConfigs {}
+export interface MidwayCasbinConfigs {
+  model?: string;
+  adapter?: any;
+}

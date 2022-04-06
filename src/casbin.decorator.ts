@@ -14,24 +14,10 @@
  * limitations under the License.
  */
 
-import { DataParser } from './nacos.interface';
 import { createCustomPropertyDecorator } from '@midwayjs/decorator';
 
-export const NACOS_CONFIG_KEY = 'NACOS_CONFIG_KEY';
+export const CASBIN_CONFIG_KEY = 'CASBIN_CONFIG_KEY';
 
-export const NacosConfig = function (
-  config: string,
-  key?: string,
-  parser?: DataParser,
-): PropertyDecorator {
-  if (typeof key === 'function') {
-    parser = key;
-    key = null;
-  }
-
-  return createCustomPropertyDecorator(NACOS_CONFIG_KEY, {
-    config,
-    key,
-    parser,
-  });
+export const NacosConfig = function (): PropertyDecorator {
+  return createCustomPropertyDecorator(CASBIN_CONFIG_KEY, {});
 };

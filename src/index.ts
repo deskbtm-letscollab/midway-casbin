@@ -16,3 +16,4 @@
 
 export { CasbinConfiguration as Configuration } from './configuration';
 export * from './casbin.decorator';
+export * from './casbin.service';
