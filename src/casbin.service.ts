@@ -16,7 +16,6 @@
 
 import { MidwayConfigService } from '@midwayjs/core';
 import {
-  ALL,
   Config,
   Init,
   Inject,
@@ -32,29 +31,19 @@ import { MidwayCasbinConfigs } from './casbin.interface';
 export class CasbinService {
   #enforcer: Enforcer;
 
-  // @Config(ALL)
-  // configs: MidwayCasbinConfigs;
-
   @Config('casbin')
-  configs1: MidwayCasbinConfigs;
-
-  @Inject()
-  configService: MidwayConfigService;
+  private configs: MidwayCasbinConfigs;
 
   @Init()
   async init() {
-    console.log(Date.now(), '************');
-    const a = this.configService.getConfiguration();
-    console.log(a, a.casbin, '####');
-    console.log(this.configs1, '!==========');
-    // const adapter =
-    //   this.configs.adapter === 'string'
-    //     ? this.configs.adapter
-    //     : await this.configs.adapter;
-    // this.#enforcer = await newEnforcer(this.configs.model, adapter);
+    const adapter =
+      this.configs.adapter === 'string'
+        ? this.configs.adapter
+        : await this.configs.adapter;
+    this.#enforcer = await newEnforcer(this.configs.model, adapter);
   }
 
-  public get enforcer() {
+  public get e() {
     return this.#enforcer;
   }
 }
